@@ -43,7 +43,9 @@ by adding a proper for loop. Also removed the wrong array from inside
 the struct. Now all 4 functions work correctly.
 
 ### v0.7 — Better Variable Name
-I renamed `count` to `habitCount` becuse `count` can't use it in C++ becuse it's key word.
+I renamed `count` to `habitCount` to make the code clearer
+and more descriptive. Also, using `count` with `using namespace std`
+can cause a conflict with `std::count` from the standard library.
 
 ### v0.8 — Fixing Name Input
 I noticed that if the habit name has spaces like "Read Book",
