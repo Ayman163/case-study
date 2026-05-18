@@ -1,0 +1,161 @@
+#include <iostream>
+using namespace std;
+
+//structure to store habit information
+struct ha
+{
+    int id;
+    string name;
+    int tardays, comdays;
+};
+
+//function prototypes
+void addHabit();
+void updateHabit();
+void showHabits();
+void searchHabit();
+
+//variables we need it for the program
+ha h[100];
+int count = 0;
+
+int main()
+{
+    int choice;
+
+    while(true)
+    {
+        cout<<"Menu:"<<endl;
+        cout<<"1. Add habit"<<endl;
+        cout<<"2. Update habit"<<endl;
+        cout<<"3. Show habit"<<endl;
+        cout<<"4. Search habit"<<endl;
+        cout<<"5. Exit"<<endl;
+
+        cin>>choice;
+
+        switch(choice)
+        {
+            case 1:
+                addHabit();
+                break;
+
+            case 2:
+                updateHabit();
+                break;
+
+            case 3:
+                showHabits();
+                break;
+
+            case 4:
+                searchHabit();
+                break;
+
+            case 5:
+                cout<<"Exiting..."<<endl;
+                return 0;
+
+            default:
+                cout<<"Invalid choice. Please try again."<<endl;
+        }
+    }
+
+    return 0;
+}
+
+//function to add habit
+void addHabit()
+{
+    cout<<"Input: \n";
+
+    cout<<"ID: \n";
+    cin>>h[count].id;
+
+    cout<<"Name: \n";
+    cin>>h[count].name;
+
+    cout<<"Target days: \n";
+    cin>>h[count].tardays;
+
+    h[count].comdays = 0;
+
+    cout << "Habit Added Successfully\n";
+
+    count++;
+}
+
+//function to update habit
+void updateHabit()
+{
+    int id;
+
+    cout<<"Input: \n";
+    cout<<"ID: \n";
+
+    cin>>id;
+
+    for(int i=0; i<count; i++)
+    {
+        if(h[i].id == id)
+        {
+            int days;
+
+            cout << "Enter Completed Days to Add: ";
+
+            cin >> days;
+
+            h[i].comdays += days;
+
+            cout << "Habit Updated Successfully.\n";
+
+            return;
+        }
+    }
+
+    cout<<"Habit not found.\n";
+}
+
+//function to show habits
+void showHabits()
+{
+    for(int i=0; i<count; i++)
+    {
+        cout<<"ID\n"<<h[i].id<<endl;
+
+        cout<<"Name\n"<<h[i].name<<endl;
+
+        cout<<"Target Days\n"<<h[i].tardays<<endl;
+
+        cout<<"Completed Days\n"<<h[i].comdays<<endl;
+    }
+}
+
+//function to search habit
+void searchHabit()
+{
+    int id;
+
+    cout<<"Input: \n";
+    cout<<"ID: \n";
+
+    cin>>id;
+
+    for(int i=0; i<count; i++)
+    {
+        if(h[i].id == id)
+        {
+            cout<<"ID\n"<<h[i].id<<endl;
+
+            cout<<"Name\n"<<h[i].name<<endl;
+
+            cout<<"Target Days\n"<<h[i].tardays<<endl;
+
+            cout<<"Completed Days\n"<<h[i].comdays<<endl;
+
+            return;
+        }
+    }
+
+    cout<<"Habit not found.\n";
+}
