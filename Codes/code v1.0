@@ -1,0 +1,197 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct ha
+{
+    int id;
+    string name;
+    int tardays, comdays;
+};
+
+void addHabit();
+void updateHabit();
+void showHabits();
+void searchHabit();
+
+ha h[100];
+int habitCount = 0;
+
+int main()
+{
+    int choice;
+
+    while (true)
+    {
+        cout << "-------------------" << endl;
+        cout << "Menu:" << endl;
+        cout << "1. Add habit" << endl;
+        cout << "2. Update habit" << endl;
+        cout << "3. Show habit" << endl;
+        cout << "4. Search habit" << endl;
+        cout << "5. Exit" << endl;
+        cout << "-------------------" << endl;
+
+        cin >> choice;
+
+        switch (choice)
+        {
+        case 1:
+            addHabit();
+            break;
+
+        case 2:
+            updateHabit();
+            break;
+
+        case 3:
+            showHabits();
+            break;
+
+        case 4:
+            searchHabit();
+            break;
+
+        case 5:
+            cout << "Exiting..." << endl;
+            return 0;
+
+        default:
+            cout << "Invalid choice. Please try again." << endl;
+        }
+    }
+
+    return 0;
+}
+
+void addHabit()
+{
+    
+    if (habitCount >= 100)
+    {
+        cout << "List is full!" << endl;
+        return;
+    }
+
+    cout << "Input: " << endl;
+
+    cout << "ID: " << endl;
+    cin >> h[habitCount].id;
+
+    
+    for (int i = 0; i < habitCount; i++)
+    {
+        if (h[i].id == h[habitCount].id)
+        {
+            cout << "ID already exists!" << endl;
+            return;
+        }
+    }
+
+    
+    cin.ignore();
+    cout << "Name: " << endl;
+    getline(cin, h[habitCount].name);
+
+    cout << "Target days: " << endl;
+    cin >> h[habitCount].tardays;
+
+    h[habitCount].comdays = 0;
+
+    cout << "Habit Added Successfully" << endl;
+
+    habitCount++;
+}
+
+void updateHabit()
+{
+    int id;
+
+    cout << "Input: " << endl;
+    cout << "ID: " << endl;
+
+    cin >> id;
+
+    for (int i = 0; i < habitCount; i++)
+    {
+        if (h[i].id == id)
+        {
+            int days;
+
+            cout << "Enter Completed Days to Add: ";
+
+            cin >> days;
+
+            h[i].comdays += days;
+
+            
+            if (h[i].comdays > h[i].tardays)
+                h[i].comdays = h[i].tardays;
+
+            cout << "Habit Updated Successfully." << endl;
+
+            return;
+        }
+    }
+
+    cout << "Habit not found." << endl;
+}
+
+void showHabits()
+{
+    
+    if (habitCount == 0)
+    {
+        cout << "No habits found." << endl;
+        return;
+    }
+
+    for (int i = 0; i < habitCount; i++)
+    {
+		cout << "-----------------------------------------------------------" << endl;
+        cout << "ID: " << h[i].id << endl;
+
+        cout << "Name: " << h[i].name << endl;
+
+        cout << "Target Days: " << h[i].tardays << endl;
+
+        cout << "Completed Days: " << h[i].comdays << endl;
+
+        int percent = h[i].comdays * 100 / h[i].tardays;
+        cout << "Progress: " << percent << "%" << endl;
+
+        cout << "-----------------------------------------------------------" << endl;
+    }
+}
+
+void searchHabit()
+{
+    int id;
+
+    cout << "Input: " << endl;
+    cout << "ID: " << endl;
+
+    cin >> id;
+
+    for (int i = 0; i < habitCount; i++)
+    {
+        if (h[i].id == id)
+        {
+            cout << "ID: " << h[i].id << endl;
+
+            cout << "Name: " << h[i].name << endl;
+
+            cout << "Target Days: " << h[i].tardays << endl;
+
+            cout << "Completed Days: " << h[i].comdays << endl;
+
+           
+            int percent = h[i].comdays * 100 / h[i].tardays;
+            cout << "Progress: " << percent << "%" << endl;
+
+            return;
+        }
+    }
+
+    cout << "Habit not found." << endl;
+}
