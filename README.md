@@ -24,7 +24,7 @@ with their completion percentage.
 
 ## 🔄 Development History
 
-### v0.1 - First Try
+### v0.1 — First Try
 The first version I wrote. The menu and switch were inside a for loop
 which was wrong because the loop needs count > 0 to run, so the menu
 never showed. I also put an array inside the struct by mistake `int ha[100]`
