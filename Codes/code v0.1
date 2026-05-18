@@ -1,0 +1,56 @@
+#include <iostream>
+using namespace std;
+struct ha
+{
+    int id;
+    string name;
+    int tardays,comdays;
+    int ha[100];
+    
+    
+};
+
+int main() {
+    ha ha[100];
+    int count = 0;
+    for(int i = 0; i < count; i++) {
+        cout<<"Menu:"<<endl;
+        cout<<"1. Add habit"<<endl;
+        cout<<"2. Update habit"<<endl;
+        cout<<"3. Show habit"<<endl;
+        cout<<"4. Search habit"<<endl;
+        cout<<"5. exit"<<endl;
+        int choice;
+        cin>>choice;
+        switch(choice) {
+            case 1:
+                cout<<"Input: \n";
+                cout<<"ID: \n";
+                cin>>ha[count].id;
+                cout<<"Name: \n";
+                cin>>ha[count].name;
+                cout<<"Target days: \n";
+                cin>>ha[count].tardays;
+                cout<<"Completed days set 0\n";
+                ha[count].comdays = 0;
+                count++;
+                break;
+            case 2:
+                cout<<"Input ID to update: \n";
+                cin>>ha[count].id;
+                break;
+            case 3:
+                // code to show habit
+                break;
+            case 4:
+                // code to search habit
+                break;
+            case 5:
+                cout<<"Exiting..."<<endl;
+                return 0;
+            default:
+                cout<<"Invalid choice. Please try again."<<endl;
+        }
+    }
+    return 0;
+}
