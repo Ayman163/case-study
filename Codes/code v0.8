@@ -24,41 +24,41 @@ int main()
 {
     int choice;
 
-    while(true)
+    while (true)
     {
-        cout<<"Menu:"<<endl;
-        cout<<"1. Add habit"<<endl;
-        cout<<"2. Update habit"<<endl;
-        cout<<"3. Show habit"<<endl;
-        cout<<"4. Search habit"<<endl;
-        cout<<"5. Exit"<<endl;
+        cout << "Menu:" << endl;
+        cout << "1. Add habit" << endl;
+        cout << "2. Update habit" << endl;
+        cout << "3. Show habit" << endl;
+        cout << "4. Search habit" << endl;
+        cout << "5. Exit" << endl;
 
-        cin>>choice;
+        cin >> choice;
 
-        switch(choice)
+        switch (choice)
         {
-            case 1:
-                addHabit();
-                break;
+        case 1:
+            addHabit();
+            break;
 
-            case 2:
-                updateHabit();
-                break;
+        case 2:
+            updateHabit();
+            break;
 
-            case 3:
-                showHabits();
-                break;
+        case 3:
+            showHabits();
+            break;
 
-            case 4:
-                searchHabit();
-                break;
+        case 4:
+            searchHabit();
+            break;
 
-            case 5:
-                cout<<"Exiting..."<<endl;
-                return 0;
+        case 5:
+            cout << "Exiting..." << endl;
+            return 0;
 
-            default:
-                cout<<"Invalid choice. Please try again."<<endl;
+        default:
+            cout << "Invalid choice. Please try again." << endl;
         }
     }
 
@@ -68,20 +68,18 @@ int main()
 //function to add habit
 void addHabit()
 {
-    cout<<"Input: \n";
+    cout << "Input: \n";
 
-    cout<<"ID: \n";
+    cout << "ID: \n";
+
+    cin >> h[habitCount].id;
+
+    cout << "Name: \n";
     cin.ignore();
     getline(cin, h[habitCount].name);
-    cin>>h[habitCount].id;
 
-    cout<<"Name: \n";
-    cin.ignore();
-    getline(cin, h[habitCount].name);
-
-    cout<<"Target days: \n";
-    cin.ignore();
-    cin>>h[habitCount].tardays;
+    cout << "Target days: \n";
+    cin >> h[habitCount].tardays;
 
     h[habitCount].comdays = 0;
 
@@ -95,14 +93,14 @@ void updateHabit()
 {
     int id;
 
-    cout<<"Input: \n";
-    cout<<"ID: \n";
+    cout << "Input: \n";
+    cout << "ID: \n";
 
-    cin>>id;
+    cin >> id;
 
-    for(int i=0; i<habitCount; i++)
+    for (int i = 0; i < habitCount; i++)
     {
-        if(h[i].id == id)
+        if (h[i].id == id)
         {
             int days;
 
@@ -118,21 +116,21 @@ void updateHabit()
         }
     }
 
-    cout<<"Habit not found.\n";
+    cout << "Habit not found.\n";
 }
 
 //function to show habits
 void showHabits()
 {
-    for(int i=0; i<habitCount; i++)
+    for (int i = 0; i < habitCount; i++)
     {
-        cout<<"ID\n"<<h[i].id<<endl;
+        cout << "ID\n" << h[i].id << endl;
 
-        cout<<"Name\n"<<h[i].name<<endl;
+        cout << "Name\n" << h[i].name << endl;
 
-        cout<<"Target Days\n"<<h[i].tardays<<endl;
+        cout << "Target Days\n" << h[i].tardays << endl;
 
-        cout<<"Completed Days\n"<<h[i].comdays<<endl;
+        cout << "Completed Days\n" << h[i].comdays << endl;
     }
 }
 
@@ -141,26 +139,26 @@ void searchHabit()
 {
     int id;
 
-    cout<<"Input: \n";
-    cout<<"ID: \n";
+    cout << "Input: \n";
+    cout << "ID: \n";
 
-    cin>>id;
+    cin >> id;
 
-    for(int i=0; i<habitCount; i++)
+    for (int i = 0; i < habitCount; i++)
     {
-        if(h[i].id == id)
+        if (h[i].id == id)
         {
-            cout<<"ID\n"<<h[i].id<<endl;
+            cout << "ID\n" << h[i].id << endl;
 
-            cout<<"Name\n"<<h[i].name<<endl;
+            cout << "Name\n" << h[i].name << endl;
 
-            cout<<"Target Days\n"<<h[i].tardays<<endl;
+            cout << "Target Days\n" << h[i].tardays << endl;
 
-            cout<<"Completed Days\n"<<h[i].comdays<<endl;
+            cout << "Completed Days\n" << h[i].comdays << endl;
 
             return;
         }
     }
 
-    cout<<"Habit not found.\n";
+    cout << "Habit not found.\n";
 }
