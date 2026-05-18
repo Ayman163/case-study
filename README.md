@@ -40,30 +40,30 @@ with their completion percentage.
 
 ## 🔄 Development History
 
-### v0.1 — First Try
+### v0.1 - First Try
 The first version I wrote. The menu and switch were inside a `for` loop
 which was wrong because the loop needs `count > 0` to run, so the menu
 never showed. I also put an array inside the struct by mistake `int ha[100]`
 which is not needed. The update and show functions were empty.
 
-### v0.3 — Adding Functions
+### v0.3 - Adding Functions
 I learned about functions so I moved the code into separate functions:
 `addHabit()`, `updateHabit()`, `showHabits()`, `searchHabit()`.
 I also changed the `for` loop to `while(true)` so the menu always shows.
 But I had a bug: I wrote `int count = 0` twice which causes a compile error.
 The `showHabits()` function also used `i` without a loop.
 
-### v0.5 — Functions Working
+### v0.5 - Functions Working
 I fixed the double `count` variable bug and fixed `showHabits()`
 by adding a proper `for` loop. Also removed the wrong array from inside
 the struct. Now all 4 functions work correctly.
 
-### v0.7 — Better Variable Name
+### v0.7 - Better Variable Name
 I renamed `count` to `habitCount` to make the code clearer
 and more descriptive. Also, using `count` with `using namespace std`
 can cause a conflict with `std::count` from the standard library.
 
-### v0.8 — Fixing Name Input
+### v0.8 - Fixing Name Input
 I noticed that if the habit name has spaces like "Read Book",
 `cin >>` only reads the first word. I fixed this by using:
 ```cpp
