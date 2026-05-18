@@ -4,7 +4,7 @@ A simple C++ console application that helps students track their daily habits.
 
 --- 
 
-## 📌 Project Description
+## 📌 Project Description 
 
 This program allows students to manage their habits by adding new habits,
 updating progress, searching for a specific habit, and viewing all habits
