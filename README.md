@@ -2,7 +2,7 @@
 
 A simple C++ console application that helps students track their daily habits.
 
----
+--- 
 
 ## 📌 Project Description
 
