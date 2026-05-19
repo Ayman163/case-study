@@ -42,7 +42,7 @@ with their completion percentage.
 
 | Version | What changed |
 |---|---|
-| v0.1 | Menu inside wrong loop — never showed |
+| v0.1 | Menu inside wrong loop - never showed |
 | v0.3 | Added functions + `while(true)` |
 | v0.5 | Fixed bugs in variables and showHabits |
 | v0.7 | Renamed `count` → `habitCount` |
